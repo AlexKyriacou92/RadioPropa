@@ -15,11 +15,16 @@ namespace radiopropa
 class Discontinuity: public Module {
 private:
 	ref_ptr<Surface> surface;
-	double n1, n2;
+	double n1, n2, fraction;
+	bool surfacemode;
 
 public:
-    Discontinuity(Surface *_surface, double _n1, double _n2); 
+    Discontinuity(Surface *_surface, double _n1, double _n2, bool _surfacemode=false, double _fraction=0.023); 
     void process(Candidate *candidate) const;
+    std::string getDescription() const;
+    bool createdAtSurface(Candidate *candidate) const;
+    void positionCorrection(Candidate* candidate, Vector3d new_direction) const;
+    void setSurfacemode(bool mode);
 };
 
 
