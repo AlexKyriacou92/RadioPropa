@@ -48,7 +48,7 @@ class Plane: public Surface
 		Plane(const Vector3d& _x0, const Vector3d& _n);
     virtual double distance(const Vector3d &x) const;
     virtual Vector3d normal(const Vector3d& point) const;
-		virtual std::string getDescription() const;
+	virtual std::string getDescription() const;
 };
 
 
