@@ -97,11 +97,11 @@ std::string Candidate::getPath() const {
 }
 
 Vector3d Candidate::getLaunchVector() const{
-	return source.getDirection();
+	return source.getDirection().getUnitVector();
 }
 
 Vector3d Candidate::getReceiveVector() const{
-	return Vector3d(-current.getDirection().x,-current.getDirection().y,-current.getDirection().z);
+	return Vector3d(-current.getDirection().x,-current.getDirection().y,-current.getDirection().z).getUnitVector();
 }
 
 void Candidate::appendReflectionAngle(double angle) {

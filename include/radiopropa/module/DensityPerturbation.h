@@ -21,7 +21,7 @@ protected:
 	double thickness, threshold, fraction;
 
 public:
-    PerturbationLayer(Surface *_surface=NULL, double _thickness=0, double _threshold=0.01, double _fraction=0.023); 
+    PerturbationLayer(Surface *surface=NULL, double thickness=0, double threshold=0.01, double fraction=0.023); 
     ~PerturbationLayer();
     void process(Candidate* candidate) const;
     std::string getDescription() const;
@@ -49,7 +49,7 @@ protected:
 	double z;
 
 public:
-	PerturbationHorizontal(double _z=0, double _thickness=0, double _threshold=0.01, double _fraction=0.023); 
+	PerturbationHorizontal(double z=0, double thickness=0, double threshold=0.01, double fraction=0.023); 
 	~PerturbationHorizontal();
 	void positionCorrection(Candidate *candidate, Vector3d new_direction) const;
 	PerturbationLayer* clone() const;
