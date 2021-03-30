@@ -36,6 +36,28 @@ public:
     void setSurfacemode(bool mode);
 };
 
+class TransmissiveLayer: public Module {
+private:
+    ref_ptr<Surface> surface;
+    double transmission;
+public:
+    TransmissiveLayer(Surface *surface, double transmission=1); 
+    void process(Candidate *candidate) const;
+    std::string getDescription() const;
+};
+
+class ReflectiveLayer: public Module {
+private:
+    ref_ptr<Surface> surface;
+    double reflection;
+    std::map<Candidate*, int> times_reflectedoff;
+public:
+    ReflectiveLayer(Surface *surface, double reflection=1); 
+    void process(Candidate *candidate);
+    std::string getDescription() const;
+
+    int getTimesReflectedoff(Candidate *candidate);
+};
 
 
 }
